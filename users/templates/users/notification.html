@@ -1,0 +1,79 @@
+{% extends 'users/base2.html' %}
+{% block content2 %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+                  
+<!--        ****************************  Notification HTML  *****************    -->     
+  <hr class="h-4 bg-danger">
+  <h1 class="text-danger text-center">Waiting status</h1>
+  {% if waiting %}
+    <div class="notif-container">              
+      <div class="notif-container-left">
+        <h4> Your Details</h4>                    
+        <br/>
+        <br/>
+        <h5>{{ waiting.user.first_name }} {{ waiting.user.last_name }}</h5>
+        <br/>
+        <h5>{{ waiting.user.contact }}</h5>
+        <br/>
+        <p>Your Current Waiting is added, for any queries contact our manager @ <span> +91 898*******</span></p>                    
+      </div>
+      <div class="notif-container-right">
+        <div class="info">                      
+          <h4 style="color:red;">Waiting Number</h4>
+          <h5>{{ your_waiting }}</h5><br>
+          <h4 style="color:red;">Waiting Queue</h4>
+          <h5>{{ total_waiting }}</h5>                   
+        </div>
+      </div>
+    </div>    
+  {% else %}  
+    <div class="notification">
+      <p class="no-notif-text">Seems like you don't haven't added Waiting yet.<p>
+      <a href="{% url 'home' %}" class="no-notif-text1">Want to add a Waiting?</a>
+      <p class="go-to-home">Go to <a href="{% url 'home' %}" class="go-to-home">Home</a> and get your waiting done.</p>
+      <p class="no-notif-text1 text-info">Having a trouble adding Waiting?</p>
+      <p class="go-to-home text-info">contact our manager @ <span class="text-danger"> +91 898********</span></p>
+    </div>
+  {% endif %}
+  {% if Booking %}
+    <hr class="h-4 bg-danger">
+    <h1 class="text-danger text-center">Current Booking status</h1>
+    <div class="notif-container">
+      {% for book in Booking %}
+        <div class="notif-container-left">
+          <h2> Your Details </h2>        
+          <h5>{{ book.user.first_name }} {{ book.user.last_name }}</h5>
+          <br/>
+          <h5>{{ book.user.contact }}</h5>
+          <br/>          
+          <p>Your Booking was succesfull, for any queries contact our manager @ <span> +91 8980226***</span></p>                    
+        </div>
+        <div class="notif-container-right">
+          <div class="info">                      
+            <h4 style="color:red;">Your Date of Booking:</h4>
+            <h5>{{ book.date }}</h5>
+            <h4 style="color:red;">Time of Booking:</h4>
+            <h5>{{ book.time }}</h5> 
+            <h4 style="color:red;">Number of people:</h4>
+            <h5>{{ book.capacity }}</h5>
+            <h4 style="color:red;">Your Table Id is:</h4>
+            <h5>{{ book.table.table_id }}</h5>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+
+  <div class="notification">
+    <p class="no-notif-text">Seems like you don't have any bookings yet.<p>
+    <a href="{% url 'home' %}" class="no-notif-text1">Book a Table?</a>
+    <p class="go-to-home">Go to <a href="{% url 'home' %}" class="go-to-home">Home</a> and get your booking done.</p>
+    <p class="no-notif-text1 text-info">Having a trouble while booking?</p>
+    <p class="go-to-home text-info">contact our manager @ <span class="text-danger"> +91 89802*****</span></p>
+  </div>
+
+  {% endif %}
+{% endblock content2 %}
+        

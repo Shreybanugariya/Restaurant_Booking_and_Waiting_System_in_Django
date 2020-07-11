@@ -1,0 +1,654 @@
+
+/****************************Registration Form CSS starts here*****************/
+
+*{
+  font-family: 'Roboto';
+}
+
+
+.body{
+  background-image: linear-gradient(120deg,#ff3838, #e74c3c);
+  padding-top: 100px;
+  height: 100%;
+}
+
+
+.r-wrapper{
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  margin: 20px auto;
+  padding: 30px;
+  box-shadow: 1px 2px 2px rgba(0,0,0,0.125);
+}
+
+.r-wrapper .r-title{
+   font-size: 24px;
+   font-weight: 700;
+   margin-bottom: 25px;
+   color: #e74c3c;
+   text-transform: uppercase;
+   text-align: center;
+}
+
+.r-wrapper .r-input_field{
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  color: #e74c3c;
+  
+}
+
+.r-wrapper .form .r-input_field{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.r-wrapper .form .r-input_field label{
+  width: 160px;
+  color: black;
+  margin-right: 10px;
+  font-size: 16px;
+  
+}
+
+.r-wrapper .form .r-input_field .input
+{
+  width: 500px;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  
+}
+
+.textarea{
+  width: 500px;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  resize: none;
+  height: 120px;
+}
+
+
+.custom_select{
+  position: relative;
+  width: 500px;
+  height: 37px;
+}
+
+.custom_select Select{
+
+  padding: 8px;
+  -webkit-appearance: none;
+  border: 1px solid #d5dbd9;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.custom_select Select :before{
+
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 8px solid;
+  border-color: red transparent transparent transparent;
+}
+
+.r-wrapper .form .r-input_field .input:focus,
+.r-wrapper .form .r-input_field .textarea:focus,
+.r-wrapper .form .r-input_field Select:focus {
+  border: 2px solid #e74c3c;
+}
+
+.r-wrapper .form .r-input_field p{
+  font-size: 14px;
+  color: #757575;  
+}
+
+.r-wrapper .form .r-input_field .check{
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  
+}
+
+.r-wrapper .form .r-input_field .check input[type="checkbox"]
+{
+  position: relative;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(120deg,#e74c3c, #e74c3c, #fe4d07, #e74c3c);
+}
+
+.r-wrapper .form .r-input_field .check .checkmark{
+   
+  width: 15px;
+  height: 15px;
+  margin-bottom: 2px;
+  position: relative;
+  
+}
+
+.r-wrapper .form .r-input_field p{
+  padding-top: 6px;
+  padding-left: 9px;
+}
+
+.submit-btn-register{
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border: 0;
+    background-image: linear-gradient(120deg,#e74c3c, #f53b57, #ff5252) ;
+    background-size: 200%;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    text-decoration: none;
+}
+
+.submit-btn-register:hover{
+  background-position: right;
+}
+
+/* @media screen and (max-width: 1300px) {
+  .r-input_field   {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/**************************login form starts here*****************/
+
+.l-wrapper{
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  height: 380px;
+  margin: 20px auto;
+  padding: 30px;
+  box-shadow: 1px 2px 2px rgba(0,0,0,0.125);
+  height: 380px;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.l-wrapper .r-title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #ff3838;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+.l-wrapper .r-input_field{
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  color:#ff3838;
+  width: 100%;
+  height: 100%;
+}
+
+.l-wrapper .form .r-input_field{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.l-wrapper .form .r-input_field label{
+  width: 60px;
+  color: black;
+  margin-right: 10px;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+.l-wrapper .form .r-input_field .input
+{
+  width: 300px;
+  margin-left: 80px;
+  float: right;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+
+.submit-btn-login{
+  width: 100%;
+  padding: 8px;
+  margin-top: 80px;
+  font-size: 15px;
+  border: 0;
+  background-image: linear-gradient(120deg,#ff3838, #e74c3c, #fec107);
+  background-size: 200%;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  text-decoration: none;
+}
+
+.submit-btn-login:hover{
+background-position: right;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+.l-wrapper .form .r-input_field .input:focus{
+    border: 2px solid #ff3838;
+}
+
+.psw {
+  text-align: center;
+  margin-top: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #e74c3c;
+}
+
+.psw:hover{
+  color: #f1c40f;
+}
+
+
+@media (max-width: 560px){
+  .l-wrapper .form .r-input_field{
+    flex-direction: column;
+    align-items: flex-start; 
+    
+  }
+  .l-wrapper .form .r-input_field label{
+   
+    width:50px;
+  }
+  .l-wrapper .form .r-input_field.terms{
+    flex-direction: row;
+  }
+}
+
+
+/******************************************************************/
+/********************************MENU Page CSS***************************/
+
+
+.item:after {
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.6);
+}
+
+.navigation{
+  z-index:9;
+  position: absolute;
+  width: 100%;
+  top:15px;
+  
+}
+
+.navbar-section > ul > li > a:hover{
+color:red;
+}
+.navbar-section > ul > li > a:active{
+  color:red;   
+}
+.data, .navbar-section > ul > li > a {
+color: #ffffff;
+font-size: 18px;
+letter-spacing: 1px;
+
+}
+.nav-link , .btn1{
+  font-family:sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+  font-stretch: ultra-condensed;
+}
+
+.carousel-caption{
+  display:none;
+  top:30%;
+
+}
+.carousel-caption > h3{
+  font-size: 60px;
+}
+
+
+
+/***************Menu CSS Starts here***********************/
+
+
+
+.m-body{
+  background-color: white;
+}
+
+.menu-container{
+  border: 2px solid red;  
+  padding: 60px;
+  margin: 40px;
+  background-image: linear-gradient(120deg, #ff3f34, #f53b57)
+}
+
+
+.starters-container,.desserts-container, .maincourse-container{
+  width: 550px;
+  background-color:white;
+  border-radius: 10px;
+  margin-left: 14px;
+  margin-bottom: 10px;
+}
+
+.starter-title,
+.maincourse-title,
+.dessert-title{
+  text-align: center;
+  font-size: 30px;
+  color: #f53b57;
+  background: white;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.starter-title:hover,
+.maincourse-title:hover,
+.dessert-title:hover{
+  color: white;
+  background: #ff3f34;
+  border: white;
+  border-radius: 20px;
+}
+
+.menu-container-title{
+  color: white;
+}
+
+.menu-catagory{
+  color: #ff3838;
+  font-size: 23px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.col{
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+
+.data-field{
+  padding-top: 5px;
+  font-size: 18px;
+  color: black;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.dish-name:hover{
+  color: red;
+}
+
+.data-field .dish-name{
+  width: 90%;
+}
+.dish-name:hover{
+  color: red;
+}
+
+.data-field .extra-info{
+  font-size: 15px;
+  color: grey;
+}
+
+.data-field .price{
+  
+  padding-right: 10px;
+}
+
+
+.img{
+  padding-top: 50px;
+  padding-left: 100px;
+  border-bottom: 10px gray ;
+}
+
+
+
+
+
+.price{
+  margin-left: 50px;
+  float: right;
+}
+
+
+@media screen and (max-width:760px)
+{
+  .img2{
+       display: none;
+  }
+  .data-field{
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+/*************************Regestration Page CSS Starts here****************************/
+
+.reg-background{
+  margin: 20px;
+  margin: 10px;
+  padding: 10px;
+  z-index: -1;
+}
+
+
+
+.reg-wraper{
+  box-shadow: -1px, 1px, 60px, 10px black;
+  background:red;
+  padding: 40px, 80px;
+  margin-top: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 0px;
+}
+
+
+.reg-title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  padding-top: 40px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.reg-data-field{
+  font-size: 20px;
+  padding-left: 75px;
+  width: 100%;
+  padding-right: 10px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.label{
+  width: 25%;
+}
+
+.reg-input, .gender-select, textarea{
+  width: 65%;
+  outline: none;
+  float: right;
+  border: none;
+  font-size: 20px;
+  color: white;
+  padding: 8px 10px;
+  margin-right: 70px;
+  border-radius: 10px;
+  padding-left: 20px;
+  resize: none;
+  background-color: rgba(0,0,0,0.4);
+}
+.reg-input:focus, .gender-select:focus, textarea:focus{
+  border: 1px solid rgb(206, 161, 161);
+}
+
+
+.reg-submit-btn{
+  width: 850px;
+  margin-top: 40px;
+  margin-left: 10px;
+  padding: 8px;
+  font-size: 15px;
+  background-color: rgba(0,0,0,0.4);
+  border: 0;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  margin-left: 45px;
+  border-radius: 10px;
+  outline: none;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+
+
+.reg-submit-btn:hover{
+  background-color: white;
+  color: red;
+  font-size: 18px;
+  font-weight: 65 0;
+}
+
+.form-control{
+  border: none;
+  color: #fab3b3;
+}
+
+@media screen and (max-width:800px){
+  .reg-wraper{
+    margin: 0;
+  }
+  .reg-data-field{
+    margin-bottom: 0;
+  }
+  .label, .textarea{
+    width: 100%;
+    float: none;
+   }
+  .reg-input, .gender-select, textarea{
+    width: 90%;
+    margin: 0;
+   
+    float: none;
+  }
+  .reg-submit-btn{
+    width: 175px;
+  }
+}
+
+.log-submit-btn{
+  width: 150px;
+  margin-top: 40px;
+  margin-left: 290px;
+  padding: 8px;
+  font-size: 15px;
+  background-color: rgba(0,0,0,0.4);
+  border: 0;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  text-decoration: none;
+  margin-bottom: 40px;
+}
+.log-submit-btn:hover{
+  background-color: white;
+  color: red;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+.log-input{
+width: 55%;
+outline: none;
+border: none;
+font-size: 20px;
+color: white;
+padding: 8px 10px;
+padding-left: 10px;
+margin-left: 170px;
+border-radius: 10px;
+background-color: rgba(0,0,0,0.4);
+}
+
+.l-label{
+  width: 75px;
+}
+
+
+@media screen and (max-width:800px){
+  .reg-wraper{
+    margin: 0;
+  }
+  .reg-data-field{
+    margin-bottom: 0;
+  }
+  .l-label{
+    width: 100%;
+    float: none;
+   }
+  .log-input{
+    width: 90%;
+    margin: 0;
+    float: none;
+  }
+  .log-submit-btn{
+    width: 175px;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

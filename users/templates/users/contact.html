@@ -1,0 +1,80 @@
+{% extends 'users/base2.html' %}
+{% block content2 %}
+{% load static %}
+
+        {% if message_name %}
+
+        <center>
+            <h2>Thank You {{ message_name }}!</h2><h3>for contacting us</h3>
+            <p>We recieved your email and will respond shortly.</p>
+        </center>
+        
+
+        {% else %}
+
+        <div class="map mt-5">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.3928722468904!2d72.53510621444012!3d23.046053934941146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84a52b005511%3A0xf9616c5dec53b658!2sSushil%20Nagar%20Society%2C%20Memnagar%2C%20Ahmedabad%2C%20Gujarat%20380052!5e0!3m2!1sen!2sin!4v1593969457252!5m2!1sen!2sin" width="100%%" height="450" frameborder="1px" style="border:0; ;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="container-fluid contact">
+            <div class="row">
+                <div class="col-md-4 contact-p1">
+                    <h1>INFORMATION</h1>
+                    <div class="bg-danger my-4 hr"></div> 
+                    <table class="c-table">
+                        <tr class="info-container">
+                            <td class="td-image"><img src="{% static 'photos/c.png' %}"></td>
+                            <td>
+                                <h5>Phone</h5>
+                                <p class="text-muted">(+91) 8980223534</p>
+                            </td>                                
+                        </tr>
+                        <tr class="info-container">
+                            <td class="td-image"><img src="{% static 'photos/l.png' %}"></td>
+                            <td>
+                                <h5>Address</h5>
+                                <p class="text-muted">Gurukul Road, Ahmedabad</p>
+                            </td>                                
+                        </tr>
+                        <tr class="info-container">
+                            <td class="td-image"><img src="{% static 'photos/e.png' %}"></td>
+                            <td>
+                                <h5>E-mail</h5>
+                                <p class="text-muted">mohitdungarani@gmail.com</p>
+                            </td>                                
+                        </tr>
+                        <tr class="info-container">
+                            <td class="td-image"><img src="{% static 'photos/cl.png' %}"></td>
+                            <td>
+                                <h5>Time</h5>
+                                <p class="text-muted">9:00 AM to 11:00 PM</p>
+                            </td>                                
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-8 contact-p2">
+                    <h1>SEND US A MESSAGE - {{ message_name }}</h1>
+                    <div class="bg-danger my-4 hr"></div>
+                    <form action="{% url 'contact' %}" method="POST">
+                      {% csrf_token %}
+                        <div class="row ">
+                            <div class="col-lg-6 mb-3">
+                                <input type="text" name="message-name" class="form-control c-form" placeholder="Name">
+                            </div>
+                            <div class="col-lg-6  mb-3">
+                                <input type="text" name="message-email"class="form-control c-form" placeholder="Email">
+                            </div>
+                            <div class="col-lg-12  mb-3">
+                                <input type="text" name="message-subject" class="form-control c-form" placeholder="Subject">
+                            </div>
+                            <div class="col-lg-12  mb-3">
+                                <textarea class="form-control c-form" name="message" placeholder="Message" rows="5"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-danger ml-3">SEND</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+        {% endif %}
+{% endblock content2%}        

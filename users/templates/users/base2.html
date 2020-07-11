@@ -1,0 +1,149 @@
+{% load static %}
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'style2.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(document).scroll(function(){
+                    $(".navigation2").css({"border-bottom":"2px solid red",});
+                    st = $(this).scrollTop();
+                    if(st == 0)
+                    {
+                        $(".navigation2").css({"border-bottom":"0px solid red",})
+                    }                
+                });                
+            });
+        </script>
+        <style>
+            .navigation2 .navbar-section .navbar-nav .nav-item .active{
+                color:red; 
+                font-weight: 700;                
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navigation2">
+            <a href="{% url 'home' %}" class="navbar-brand  "><img src="{% static 'photos/logo-color.png' %}"></a>
+            <button class="navbar-toggler navbar-light " type="button" data-toggle="collapse" data-target="#NavBar">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-end navbar-section" id="NavBar">
+                <ul class="navbar-nav ">
+                    <li class="nav-item ">
+                        <a class="{{ home_page }} nav-link mr-3 " href="{% url 'home' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="{{ menu_page }} nav-link mr-3" href="{% url 'menu' %}">MENU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="{{ contact_page }} nav-link mr-3" href="{% url 'contact' %}">CONTACT-US</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="{{ notification }} nav-link mr-3" href="{% url 'notification' %}">NOTIFICATION</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mr-3 " href="{% url 'logout' %}">LOGOUT</a>
+                        </li>                        
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="{{ register_page }} nav-link mr-3" href="{% url 'register' %}">REGISTER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ login_page }} nav-link mr-3" href="{% url 'login' %}">LOGIN</a>
+                        </li>
+                    {% endif %}
+                    
+                </ul>
+            </div>
+        </nav>
+        <div class="c-header">
+            <div class="text">
+                <h1 class="title text-white">Welcome to {{ title }}</h1>
+                <p> <a href="{% url 'home' %}" class="text-danger"> Home</a> / {{ title }}</p> 
+            </div>
+        </div>
+        {% block content2 %}
+        {% endblock %}
+        <footer>
+            <div class="container">
+                 <div class="row">
+                     <div class="col-lg-4 mt-4">
+                         <h1 > ABOUT CAFE </h1>
+                         <div class="bg-danger my-4 hr ">                    
+                         </div>
+                         <h5>We aim to home-produce as much as possiblefor the best quality, 
+                             and to reduce food mcious cakes, traditional Devon soups, sauces and
+                             accompanimentsion.We aim to home-produce as much as possiblefor the best
+                             quality, and to reduce food mcious cakes.
+                         </h5>
+                     </div>
+                     <div class="col-lg-4 mt-4">
+                         <h1 > TOP FOOD </h1>
+                         <div class="bg-danger my-4 hr"></div>
+                         <div class="media">
+                             <img class="footer-img" src="{% static 'photos/5.jpg' %}">
+                             <div class="media-body">
+                                 <h5 class="h5 m-3"><a class="footer-link h5" href="#"> Special Punjabi sabji</a></h5>
+                             </div>
+                         </div>
+                         <div class="media mt-5">
+                             <img class="footer-img" src="{% static 'photos/6.jpg' %}">
+                             <div class="media-body">
+                                 <h5 class="h5 m-3"><a class="footer-link h5" href="#"> Special sweet</a></h5>
+                             </div>
+                         </div>
+                         
+                     </div>
+                     <div class="col-lg-4 mt-4">
+                         <h1 >OPENING HOUR </h1>
+                         <div class="bg-danger my-4 hr">
+                         </div>
+                         <table class="h5 table table-borderless">
+                             <tr>
+                                 <td>Monday</td>
+                                 <td class="text-right">5pm - 11pm</td>
+                             </tr>
+                             <tr>
+                                 <td>Tuesday</td>
+                                 <td class="text-right">5pm - 11pm</td>
+                             </tr>
+                             <tr>
+                                 <td>Wednesday</td>
+                                 <td class="text-right text-danger">Closed</td>
+                             </tr>
+                             <tr>
+                                 <td>Thursday</td>
+                                 <td class="text-right">5pm - 12am</td>
+                             </tr>
+                             <tr>
+                                 <td>Friday</td>
+                                 <td class="text-right">5pm - 12am</td>
+                             </tr>
+                             <tr>
+                                 <td>Satureday</td>
+                                 <td class="text-right">5pm - 11pm</td>
+                             </tr>
+                             <tr>
+                                 <td>Sunday</td>
+                                 <td class="text-right">5pm - 11pm</td>
+                             </tr>
+                         </table>
+                     </div>
+                 </div>
+             </div>
+             <div class="text-center pt-3" style=" margin-top:20px;min-height:50px; background-color:rgb(226, 48, 48);">
+                 <h6 >@2020 Made by Mohit and Shrey</h6>
+             </div>
+         </footer>
+     </body>
+ </html>

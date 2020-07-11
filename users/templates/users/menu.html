@@ -1,0 +1,217 @@
+{% extends 'users/base2.html' %}
+{% block content2 %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+<!---------------------------------Main Menu-------------------------------------- --> 
+<div class="m-body">
+        <div class="menu-container">
+          <div class"menu-container-title"></div>  
+            <div class="starter-title">Starters</div>
+            <div class="row">
+              <div class="starters-container">
+                
+                <div class="col md-6">
+                <div class="shadow-lg p-5 m-3 mb-5 bg-white rounded" style="margin-top:10px;" id="super">
+                  <label class="menu-catagory">Soup</label>
+                     <div class="data-field">
+                        <label for="dish-name" class="dish-name">Tomato Soup<span class="price">Rs. 70</span></label>
+                        <label for="" class="extra-info">200ml (quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Hot and Spicy Soup<span class="price">Rs. 75</span></label>
+                        <label for="" class="extra-info">200ml (Quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Manchau Soup<span class="price text-right">Rs. 75</span></label>
+                        <label for="" class="extra-info">200ml (Quantity can be changed)</label>
+                        
+                        <label id="stars" class="stars"></label>
+                     </div>
+                    </div>
+
+                <div class="shadow-lg p-5 m-3 mb-5 bg-white rounded" style="margin-top:10px;" id="super">
+                 <label class="menu-catagory">Manchurain</label>
+                     <div class="data-field">
+                        <label for="dish-name" class="dish-name">Manchurain Dry<span class="price">Rs. 65</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Manchurain with Gravy<span class="price">Rs. 75</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Cheese Manchurain<span class="price">Rs. 85</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+                     </div>
+                   </div>
+                  </div>
+                 </div>
+
+
+                    <div class="col md-6 m-img">
+                       <img src="{% static 'photos/maincourse1.jpg' %}" class="shadow-lg p-2 mb-54 bg-white rounded mx-500 d-block m-img" alt="...">
+                       <img src="{% static 'photos/maincourse2.jpg' %}" class="shadow-lg p-2 mb-54 bg-white rounded mx-500 d-block m-img" alt="...">
+                     </div> 
+                  </div>
+
+           <div class="maincourse-title">Main Course</div>
+            <div class="row">
+              <div class="maincourse-container">
+                <div class="col md-6">
+                <div class="shadow-lg p-5 m-3 mb-5 bg-white rounded"  style="margin-top:10px;"  id="super">
+                  <label class="menu-catagory">Sabji</label>
+                     <div class="data-field">
+                        <label for="dish-name" class="dish-name">Aloo Matteer<span class="price">Rs. 90</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                     
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Panner Tika Masala<span class="price">Rs. 155</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                      
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Panner Butter Masala<span class="price">Rs. 175</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                        
+                        <label id="stars" class="stars"></label>
+                     </div>
+                    </div>
+
+                    <div class="shadow-lg p-5 m-3 mb-5 bg-white rounded" style="margin-top:10px;"  id="super">
+                     <label class="menu-catagory">Along with sabji</label>
+                     <div class="data-field">
+                        <label for="dish-name" class="dish-name">Roti<span class="price">Rs. 15</span></label>
+                        <label for="" class="extra-info">1 Roti (medium size)</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Butter Roti<span class="price">Rs. 20</span></label>
+                        <label for="" class="extra-info">1 Butter Roti (medium size)</label>
+                        
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Kulcha <span class="price">Rs. 25</span></label>
+                        <label for="" class="extra-info">1 Kulcha (medium size)</label>
+                       
+                        <label id="stars" class="stars"></label>
+                     </div>
+                    </div>
+
+
+                    <div class="shadow-lg p-5 m-3 mb-5 bg-white rounded" style="margin-top:10px;" id="super">
+                     <label class="menu-catagory">South Indian</label>
+                     <div class="data-field">
+                        <label for="dish-name" class="dish-name">Masala Dosa <span class="price">Rs. 105</span></label>
+                        <label for="" class="extra-info">paper size along with extra chantni</label>
+                        
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Idli sambhar <span class="price">Rs. 120</span></label>
+                        <label for="" class="extra-info">5 Idli and Sambar</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Rawa Dosa <span class="price">Rs. 155</span></label>
+                        <label for="" class="extra-info">paper size</label>
+                         
+                        <label id="stars" class="stars"></label>
+                     </div>
+                    </div>
+
+                    <div class="shadow-lg p-5 m-3 mb-5 bg-white rounded"  style="margin-top:10px;"  id="super">
+                    <label class="menu-catagory">Gujarati</label>
+                     <div class="data-field">
+                        <label for="dish-name" class="dish-name">Simple Gujarati Thali <span class="price">Rs. 100</span> </label>
+                        <label for="" class="extra-info">5 roti 2 sabji dal rice salad</label>              
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Delux Gujarati Thali <span class="price">Rs. 125</span></label>
+                        <label for="" class="extra-info">5 roti 2sabji dal rice sweet salad buttermil</label>
+                  
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Royal Gujarati Thali <span class="price">Rs. 175</span></label>
+                        <label for="" class="extra-info">10 roti 3 sabji dal rice 2 sweet buttermil papad salad pickle</label>                         
+                        <label id="stars" class="stars"></label>
+                     </div> 
+                    </div>
+                    </div> 
+                    </div>
+                    <div class="col md-6 m-img">
+                       <img src="{% static 'photos/maincourse1.jpg' %}" class="shadow-lg p-2 mb-54 bg-white rounded mx-500 d-block m-img" alt="...">
+                       <img src="{% static 'photos/maincourse2.jpg' %}" class="shadow-lg p-2 mb-54 bg-white rounded mx-500 d-block m-img" alt="...">
+                       <img src="{% static 'photos/maincourse3.jpg' %}" class="shadow-lg p-2 mb-54 bg-white rounded mx-500 d-block m-img" alt="...">
+                       <img src="{% static 'photos/maincourse3.jpg' %}" class="shadow-lg p-2 mb-54 bg-white rounded mx-500 d-block m-img" alt="...">
+                     </div>  
+                  </div>
+        <div class="dessert-title">Desserts</div>
+          <div class="row">     
+              <div class="desserts-container">      
+                <div class="col">   
+                <div class="shadow-lg p-5 m-3 mb-5 bg-white rounded"  style="margin-top:10px;"  id="super">     
+                  <label class="menu-catagory">Ice-Cream</label>
+                     <div class="data-field">
+                        <label for="dish-name" class="dish-name">Vanila <span class="price">Rs. 25</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Chocolate <span class="price">Rs. 75</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                        
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Strawberry <span class="price">Rs. 55</span></label>
+                        <label for="" class="extra-info">250g (Quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+                     </div>
+                    </div>
+
+                    <div class="shadow-lg p-5 m-3 mb-5 bg-white rounded" style="margin-top:10px;"  id="super">
+                     <label class="menu-catagory">Thick shakes</label>
+                     <div class="data-field">
+                        <label for="dish-name" class="dish-name">Chololate <span class="price">Rs. 90</span></label>
+                        <label for="" class="extra-info">250ml (Quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Oreo <span class="price">Rs. 110</span></label>
+                        <label for="" class="extra-info">250ml (Quantity can be changed)</label>
+                         
+                        <label id="stars" class="stars"></label>
+
+                        <label for="dish-name" class="dish-name">Kaju Chocolate <span class="price">Rs. 115</span></label>
+                        <label for="" class="extra-info">250ml (Quantity can be changed)</label>                        
+                        <label id="stars" class="stars"></label>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col md-6 m-img ">
+                <img src="{% static 'photos/desserts1.jpg' %}" class="shadow-lg p-2 mb-54 bg-white rounded mx-500 d-block m-img" alt="..."> 
+                <img src="{% static 'photos/desserts2.jpg' %}" class="shadow-lg p-2 mb-54 bg-white rounded mx-500 d-block m-img" alt="...">     
+              </div>
+            </div>
+
+
+
+              <div class="bevrages-container"></div>
+            </div>
+          </div>
+
+          {% endblock content2 %}
+
+</div>
+
+
+    </body>
+</html>

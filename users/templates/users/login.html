@@ -1,0 +1,26 @@
+{% extends 'users/base2.html' %}
+{% block content2 %}   
+{% load static %}  
+<link rel="stylesheet" href="{% static 'style.css' %}"> 
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="reg-background">
+            <div class="reg-wraper">
+                <div class="reg-title">Regestration Form</div>
+                <p class="text-white">{{form.non_field_errors}}</p>
+                {% for field in form %}
+                    <div class="reg-data-field">
+                        <p class="text-white">{{field.errors}}</p>
+                        {{field.label_tag}}
+                        <input class="reg-input" id="{{ field.id_for_label }}"  name="{{ field.html_name }}" type="{{ field.html_name }}" />
+                    </div>
+                {% endfor %}
+                <div class="reg-data-field">
+                    <input type="submit" class="reg-submit-btn">
+                 </div>                   
+            </div>              
+        </div>
+    </form>
+{% endblock content2 %}

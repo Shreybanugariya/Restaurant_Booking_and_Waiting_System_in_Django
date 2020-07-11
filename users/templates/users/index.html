@@ -1,0 +1,182 @@
+
+{% extends 'users/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+<!--      *********************************** Status Board ***********************************     -->
+
+<div class="container bg-white my-5 pt-5 c-status">
+    <h2 class="text-center title c-title"> CURRENT <span class="text-danger">STAUTS</span> </h2>
+    <div class="row my-5">
+        <!-- <div class="col-sm-3 text-center mb-5">
+            <h1><span class="badge badge-dark">{{ total_table }}</span></h1>
+            <h4>Total tables</h4>
+        </div>
+        <div class="col-sm-3 text-center mb-5">
+            <h1><span class="badge badge-danger">{{ avail_table }}</span></h1>
+            <h4>Available Table</h4>
+        </div>
+        <div class="col-sm-3 text-center mb-5">
+            <h1><span class="badge badge-info">{{ total_waitings }}</span></h1>
+            <h4>Current Waiting</h4>
+        </div>
+        <div class="col-sm-3 text-center mb-5">
+            <h1><span class="badge badge-success">{{ total_bookings }}</span></h1>
+            <h4>Today's Bookings</h4>
+        </div> -->
+        <div class="col-sm-3 text-center ">
+            <h1><span class="badge badge-success ">{{ avail_4_table }}</span></h1>
+            <h4>Available tables of capacity 4</h4>
+        </div><div class="col-sm-3 text-center ">
+            <h1><span class="badge badge-info">{{ avail_6_table }}</span></h1>
+            <h4>Available tables of capacity 6</h4>
+        </div><div class="col-sm-3 text-center ">
+            <h1><span class="badge badge-dark">{{ total_4_waitings }}</span></h1>
+            <h4>Waiting in table of capacity 4</h4>
+        </div><div class="col-sm-3 text-center">
+            <h1><span class="badge badge-danger ">{{ total_6_waitings }}</span></h1>
+            <h4>Waiting in table of capacity 6</h4>
+        </div>
+    </div> 
+    
+    <div class="text-center mb-3">
+        {% if is_waiting %}
+            <a href="{% url 'waiting' %}"class="btn1 btn btn-outline-danger font-weight-bold p-3 mb-4 "> Add Waiting </a>         
+        {% endif %}
+        <hr class="bg-danger">
+            
+    </div>
+</div>
+
+
+<!--      *********************************** Booking Tables ***********************************     -->
+<div class="container-fluid booking-section ">
+    <div class="container ">
+        <h1 class="title text-center text-white pt-5">BOOK A TABLE</h1>
+        <h4 class="text-center second-title">RESERVED YOUR TABLE</h4>
+        <h4 class="third-title text-center">OPENING HOUR 8:00 AM - 10:00 PM EVERY DAY ON WEEK.</h4>
+    </div>            
+    <form method="POST" id="bookForm" table-url="{% url 'ajax_load_table' %}">
+        {% csrf_token %}
+        <p class="text-danger"> {{form.non_field_errors}}</p>
+        <div class="row ">
+            {% for field in form %}
+                <div class="col-lg-3 col-sm-6 mb-5">
+                    {{field}}
+                    {{ field.errors }}
+                </div>                    
+            {% endfor %}
+            <div class="col-lg-3 col-sm-6 my-5 text-center">
+                <button type="submit" class="btn2 " >BOOK A TABLE</button>
+            </div>
+        </div>
+    </form>            
+</div>
+
+<script>
+    var min = new Date();
+    var max = new Date();
+    min.setDate(min.getDate() + 1);
+    max.setDate(max.getDate() + 6);
+    var dd1 = min.getDate();
+    var mm1 = min.getMonth()+1; //January is 0!
+    var yyyy1 = min.getFullYear();
+    var dd2 = max.getDate();
+    var mm2 = max.getMonth()+1; //January is 0!
+    var yyyy2 = max.getFullYear();            
+    if(dd1<10){
+            dd1='0'+dd1;
+    } 
+    if(mm1<10){
+        mm1='0'+mm1;
+    }
+    if(dd2<10){
+            dd2='0'+dd2;
+    }
+    if(mm2<10){
+        mm2='0'+mm2;
+    } 
+    min = yyyy1+'-'+mm1+'-'+dd1;
+    max = yyyy2+'-'+mm2+'-'+dd2;
+    document.getElementsByClassName("datepicker")[0].setAttribute("min", min);
+    document.getElementsByClassName("datepicker")[0].setAttribute("max", max);
+
+
+
+    function table_select(){
+        var url = $("#bookForm").attr("table-url");
+        var date = $(".datepicker").val();
+        var time = $(".timepicker").val();
+        var capacity = $(".capacity").val();
+
+        $.ajax({
+            url: url,
+            data: {
+                'date':date,
+                'time':time,
+                'capacity':capacity
+            },
+            success: function(data){
+                $("#id_table").html(data);
+            }
+        });
+    }
+    
+    $(".datepicker").change( function(){
+        $(".timepicker").change(table_select);
+        $(".capacity").change(table_select);
+    });
+    $(".timepicker").change( function(){
+        $(".datepicker").change(table_select);
+        $(".capacity").change(table_select);
+
+    });
+</script>
+
+<!-- ************************************** Menu part *********************************************     -->
+<div class="container-fluid menu">
+    <div class="row">
+        <div class="col-lg-6 menu-text">
+            <h2>Foods<br>Grow your appetite to have more <br>food, more fun.</h2>
+            <p >Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant 
+            cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag 
+            selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
+
+            <a href="{% url 'menu' %}" class="btn btn-outline-danger font-weight-bold p-3 mt-4  menu-btn">See a Menu</a>
+
+        </div>
+        <div class="col-lg-6 text-center ">
+            <img src="{% static 'photos/6.jpg' %}" class="img-responsive menu-img" width="100%">
+        </div>
+    </div>
+</div>
+<!--   ********************************* Rating Part ************************************  -->
+<div class="rating">
+    <div class="row">
+        <div class="col-xl-6 rating-pa1">
+            <img class="responsive-img" width="100%" src="{% static 'photos/rate.jpg' %}">
+        </div>
+        <div class="col-xl-6 rating-pa2">
+            <div class="container-fluid">
+                <h2 class="mt-5 title rating-h"> CLIENT REVIEW</h2>
+                <h4 class="rating-h2"> What Client Say </h4>
+                <div class="media mt-4" >
+                    <img class="rounded-circle mr-3 rating-img" src="{% static 'photos/p1.png' %}">
+                    <div class="media-body">
+                        <h4 class="mb-3 rating-name"> Viral Shah</h4>
+                        <p class="rating-p rating-h2"> It is best restaurent i ever know. I used to come to this restaurent in every weekend.</p>
+                    </div>
+                </div>
+                <div class="media rating-media" >
+                    <img class="rounded-circle mr-3 rating-img" src="{% static 'photos/p2.png' %}">
+                    <div class="media-body">
+                        <h4 class="mb-3 rating-name"> Rohit Varma</h4>
+                        <p class="rating-p rating-h2"> It was the best experience. There is very good service. I like it ,Thank you so much.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

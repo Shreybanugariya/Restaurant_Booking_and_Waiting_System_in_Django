@@ -1,0 +1,4 @@
+<option value="" class="text-dark">Select Table ID</option>
+{% for t in table %}
+    <option value="{{ t.pk }}" class="text-dark">{{ t }}</option>
+{% endfor %}

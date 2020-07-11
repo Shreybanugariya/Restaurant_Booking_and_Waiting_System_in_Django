@@ -1,0 +1,111 @@
+{% load static %}
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'style2.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("input").blur()
+                $(this).scrollTop(0);
+                $(document).scroll(function(){
+                    $(".navigation").css({"position":"fixed","top":"0","right":"0","border-bottom":"2px solid red","background-color":"rgba(0,0,0,0.6"});
+                    st = $(this).scrollTop();
+                    if(st == 0)
+                    {
+                        $(".navigation").css({"position":"absolute","border-bottom":"0px solid red","background-color":"rgba(0,0,0,0","top":"18px"})
+                    }
+                
+                });                
+                $(".carousel-caption").fadeIn(2000);
+                $(".form-control").focus(function(){
+                    $(this).css({"background-color":"transparent","color":"white"});
+                });
+                $(".datepicker").datepicker();
+                $(".timepicker").timepicker();
+            });
+        </script>
+        <style>
+            .navigation .navbar-section .navbar-nav .nav-item .active{
+                color:red; 
+                font-weight: 700;                
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md  navigation ">
+            <a href="{% url 'home' %}" class="navbar-brand  "><img src="{% static 'photos/logo.png' %}"></a>
+             <button class="navbar-toggler navbar-dark " type="button" data-toggle="collapse" data-target="#NavBar">
+                 <span class="navbar-toggler-icon "></span>
+             </button>
+             <div class="navbar-collapse collapse justify-content-end navbar-section" id="NavBar">
+                 <ul class="navbar-nav ">
+                     <li class="nav-item ">
+                         <a class="{{ home_page }} nav-link mr-3 " href="{% url 'home' %}">HOME</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="{{ menu_page }} nav-link mr-3" href="{% url 'menu' %}">MENU</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link mr-3" href="{% url 'contact' %}">CONTACT-US</a>
+                     </li>
+                     {% if request.user.is_authenticated %}
+                         <li class="nav-item">
+                             <a class="nav-link mr-3" href="#">NOTIFICATION</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link mr-3 " href="{% url 'logout' %}">LOGOUT</a>
+                         </li>                        
+                     {% else %}
+                         <li class="nav-item">
+                             <a class="{{ register_page }} nav-link mr-3" href="{% url 'register' %}">REGISTER</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="{{ login_page }} nav-link mr-3" href="{% url 'login' %}">LOGIN</a>
+                         </li>
+                     {% endif %}
+                     
+                 </ul>
+             </div>
+         </nav>
+        <div class="back">
+            <div class="container form-wrapper">
+
+                <div class="text">
+                    <h1 class="title text-white">Welcome to <span class="text-danger">{{ title }}</span> page</h1>
+                    <p> <a href="{% url 'home' %}" class="text-danger"> Home</a> / {{title}}</p> 
+                </div>
+            <form method="POST" class="form1">
+                {% csrf_token %}
+                <h3 class="text-danger ">{{ title }}</h3><hr class="bg-danger mb-5">
+                <p class="text-danger"> {{form.non_field_errors}}</p>
+
+                {% for field in form %}
+                    <div class="field-wrapper">                        
+                        
+                        {{field.label_tag}}
+                        {{ field }}
+                        <p> {{ field.errors }}</p>
+                    </div>
+                {% endfor %}
+
+                    <div class="text-center">
+                        <button type="submit" class="btn  btn-outline-danger login-btn">{{ title }}</button>
+                    </div>
+                    {% if title == "Register" %}
+                        <a href="{% url 'login' %}" class="mt-5 extra">Already Have an Account ? </a><br>
+                    {% elif title == "Login" %}
+                        <a href="{% url 'register' %}" class="mt-5 extra">Don't Have an Account ? </a><br>
+                    {% endif %}
+                </form>
+                
+            </div>
+        </div>
+    </body>
+</html>

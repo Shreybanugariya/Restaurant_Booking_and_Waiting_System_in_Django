@@ -1,0 +1,69 @@
+{% extends 'users/base2.html' %}
+{% block content2 %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="reg-background">
+                    <div class="reg-wraper">
+                        <div class="reg-title">Regestration Form</div>
+                        <p class="text-white">{{form.non_field_errors}}</p>
+                        {% for field in form %}
+                            <div class="reg-data-field">
+                                <p class="text-white">{{field.errors}}</p>
+                                {{field.label_tag}}
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                           <!-- <div class="reg-data-field">
+                                {{form.first_name.errors}}
+                                <label class="label" for="firstname">First Name</label>
+                                {{ form.first_name }}
+                            </div> 
+                      <div class="reg-data-field">
+                        <label class="label" for="lasstname">Last Name</label>
+                        <input type="text" id="lasstname" class="reg-input">
+                      </div> 
+                      <div class="reg-data-field">
+                        <label class="label" for="username">Username</label>
+                        <input type="text" id="username" placeholder="pick a unique username" class="reg-input">
+                      </div> 
+                      <div class="reg-data-field">
+                        <label class="label" for="password">Password</label>
+                        <input type="password" id="password" placeholder="make it a strong password" class="reg-input">
+                      </div> 
+                      <div class="reg-data-field">
+                        <label class="label" for="emailaddress">Email</label>
+                        <input type="text" id="emailaddress" class="reg-input">
+                      </div> 
+                      <div class="reg-data-field">
+                        <label class="label" for="contactno">Contact No.</label>
+                        <input type="text" id="contactno" class="reg-input">
+                      </div> 
+                      <div class="form-group reg-data-field">
+                        <label class="label" for="gender">Gender</label>
+                          
+                          <select class="gender-select">
+                            <option  value="male">Male</option>
+                            <option  value="female">Female</option>
+                            <option  value="others">others</option>
+                            </select>
+                       
+                        </div> 
+                      <div class="reg-data-field">
+                        <label class="label" for="Address">Address</label>
+                          <textarea name="Address" id="Address" placeholder="Write you compelete address" style="height:200px"></textarea>
+                      </div> -->
+                     
+                     <div class="reg-data-field">
+                        <input type="submit" class="reg-submit-btn">
+                     </div> 
+      
+                      
+                    </div>
+                  
+                  </div>
+            </form>
+{% endblock content2 %}
