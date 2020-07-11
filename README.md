@@ -1,5 +1,5 @@
 # Restaurant_Booking_and_Waiting_System_in_Django
-A responsive website for booking a table in advance at a restaurant. Also, for the peak hours and weakends there is a feature called "ADD WAITING", where a user can add his/her name in the waiting list. 
+A responsive website for booking a table in advance at a restaurant. Also, for the peak hours and in weakends when there is rush, there is a feature called "ADD WAITING", where a user can add his/her name in the waiting list. 
 
 # Features
 1) Booking:
